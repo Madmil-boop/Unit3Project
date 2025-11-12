@@ -1,0 +1,196 @@
+#menuToggle
+{
+  display: block;
+  /* You can also use relative/absolute here if you want to stay on the top */
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: rgb(196, 198, 204);
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  max-width: 400px;
+  width: 100vw;
+  max-height: 100vh;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: #c0c8d2;
+  opacity: 90%;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+#menu li label
+{
+  cursor: pointer;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eef2f3;
+    padding: 20px;
+  }
+  form {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  label { display: block; margin-top: 10px; width: fit-content;
+}
+  input, textarea { width: 90%; padding: 10px; margin-top: 5px; }
+  button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background-color: #0078d7;
+    border: none;
+    color: white;
+    border-radius: 4px;
+  }
+  fieldset {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    width: 100%;
+  }
+h2 {
+    text-align: center;
+  }
+
+  /* Responsive Adjustments */
+  @media (min-width: 600px) {
+    form { display: flex; flex-wrap: wrap; gap: 10px; }
+    label { width: 100%; }
+    input[name="name"], input[name="email"] { flex: 1 1 48%; }
+    textarea { flex: 1 1 100%; }
+    button { flex: 1 1 100%; }
+
+  }

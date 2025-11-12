@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="formstyle.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet Application </title>
+<style>
+  
+</style>
+</head>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<body>
+
+<div class="background">
+    <nav role="navigation">
+    <div id="menuToggle">
+        <input type="checkbox"  id="menuCheckbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+        <li>
+            <a href="index.html">
+            <label for="menuCheckbox" onclick="this.parentNode.click();">About</label>
+            </a>
+        </li>
+        <li>
+            <a href="form.html">
+            <label for="menuCheckbox" onclick="this.parentNode.click();">Pet Application Form</label>
+            </a>
+        </ul>
+    </div>
+    </nav>
+</div>
+
+<h2>Pet Application Form</h2>
+
+<form action="http://kijinoparagon.github.io/Testing/FormTester/" method="get">
+    <fieldset>
+        <legend>Owners Information</legend>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+    </fieldset>
+
+    <fieldset>
+        <legend>Pet Information</legend>
+        <label for="pet_name">Pet Name:</label>
+        <input type="text" id="pet_name" name = "pet_name" required>
+
+        <label for="pet_type">Pet Type:</label>
+        <select id="pet_type" name="pet_type" required>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="bird">Bird</option>
+            <option value="other">Other</option>
+        </select>
+        <label for="age">Pet Age:</label>
+        <input type="number" id="age" name="age" min="0" required>
+    </fieldset>
+
+
+  <button type="reset">Reset</button>
+
+  <button type="submit">Submit</button>
+  
+</form>
+
+</body>
+</html>
